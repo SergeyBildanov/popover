@@ -19,7 +19,7 @@ describe("Popover work", () => {
     button.dispatchEvent(new dom.window.Event("click"));
     setTimeout(()=>{
         expect(popoverFactory._popovers.length).toBe(1);
-    }, 2000);
+    }, 1000);
   });
 });
 /*describe("Popover work 1", () => {
