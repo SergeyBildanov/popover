@@ -9,18 +9,19 @@ let dom;
 
 beforeAll(() => {
   dom = new JSDOM(html, { runScripts: "dangerously" });
+  global.window = dom.window;
+  global.document = dom.window.document;
 });
 
 jest.setTimeout(30000);
 describe("Popover work", () => {
   test("Popover adding", async () => {
-    const button = dom.window.document.querySelector(".button");
+    const button = document.querySelector(".button");
     const popoverFactory = new Popover();
-    button.dispatchEvent(new dom.window.Event("click"));
-    let length = popoverFactory._popovers.length;
+    button.dispatchEvent(new window.Event("click"));
     setTimeout(()=>{
-        expect(length).toEqual(1);
-    }, 1000)
+        expect(popoverFactory._popovers.length).toBe(1);
+    }, 1000);
   });
 });
 /*describe("Popover work 1", () => {
