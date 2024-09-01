@@ -17,8 +17,9 @@ describe("Popover work", () => {
     const button = dom.window.document.querySelector(".button");
     const popoverFactory = new Popover();
     button.dispatchEvent(new dom.window.Event("click"));
+    let length = popoverFactory._popovers.length;
     setTimeout(()=>{
-        expect(popoverFactory._popovers.length).toEqual(1);
+        expect(length).toEqual(1);
     }, 1001)
   });
 });
