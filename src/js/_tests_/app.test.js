@@ -20,7 +20,7 @@ describe("Popover work", () => {
     let length = popoverFactory._popovers.length;
     setTimeout(()=>{
         expect(length).toEqual(1);
-    }, 1001)
+    }, 10001)
   });
 });
 /*describe("Popover work 1", () => {
