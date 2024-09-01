@@ -11,7 +11,7 @@ beforeAll(() => {
   dom = new JSDOM(html, { runScripts: "dangerously" });
 });
 
-jest.setTimeout(60000);
+jest.setTimeout(30000);
 describe("Popover work", () => {
   test("Popover adding", async () => {
     const button = dom.window.document.querySelector(".button");
@@ -19,7 +19,7 @@ describe("Popover work", () => {
     button.dispatchEvent(new dom.window.Event("click"));
     setTimeout(()=>{
         expect(popoverFactory._popovers.length).toBe(1);
-    }, 1000);
+    }, 1001)
   });
 });
 /*describe("Popover work 1", () => {
