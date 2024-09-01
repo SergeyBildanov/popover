@@ -22,7 +22,7 @@ describe("Popover work", () => {
     }, 2000);
   });
 });
-describe("Popover work", () => {
+describe("Popover work 1", () => {
     test("Popover removing", () => {
         const button = dom.window.document.querySelector(".button");
         const popoverFactory = new Popover();
