@@ -20,7 +20,7 @@ describe('Popover work',  () => {
         button.dispatchEvent(new dom.window.Event('click'));
         setTimeout(() => {
             expect(popoverFactory._popovers.length).toBe(1);
-        }, 1001);
+        });
     })
     test("Popover removing", async ()=>{
         const button = dom.window.document.querySelector('.button');
@@ -29,6 +29,6 @@ describe('Popover work',  () => {
         button.dispatchEvent(new dom.window.Event('click'));
         setTimeout(() => {
             expect(popoverFactory._popovers.length).toBe(0);
-        }, 1001);
+        });
     })
 });
