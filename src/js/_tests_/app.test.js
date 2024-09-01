@@ -8,9 +8,10 @@ const { JSDOM } = jsdom;
 let dom;
 
 beforeAll(() => {
-  dom = new JSDOM(html, { runScripts: "dangerously" });
-  global.window = dom.window;
-  global.document = dom.window.document;
+    const dom = new JSDOM(html, { url: 'https://localhost:9000' });
+
+    global.window = dom.window;
+    global.document = dom.window.document;
 });
 
 jest.setTimeout(30000);
