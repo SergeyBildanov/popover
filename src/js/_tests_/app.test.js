@@ -8,10 +8,9 @@ const { JSDOM } = jsdom;
 let dom;
 
 beforeAll(() => {
-    const dom = new JSDOM(html, { url: 'https://localhost:9000' });
-
-    global.window = dom.window;
-    global.document = dom.window.document;
+    document.body.innerHTML = `<div class="button">
+    <div class="button-text">Toggle popover</div>
+  </div>`
 });
 
 jest.setTimeout(30000);

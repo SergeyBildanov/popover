@@ -1,20 +1,13 @@
-const path = require("path");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { LicenseFilePlugin } = require("generate-license-file-webpack-plugin");
+const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   devServer: {
-    historyApiFallback: true,
-    contentBase: path.resolve(__dirname, "/dist"),
-    open: true,
-    compress: true,
-    port: 9000,
+    port: 9000
   },
-  target: "web",
   output: {
-    path: path.resolve(__dirname, "dist"),
-    publicPath: "",
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
@@ -22,45 +15,33 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader",
+            loader: 'html-loader',
           },
         ],
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        use: [
+          MiniCssExtractPlugin.loader, 'css-loader',
+        ],
       },
     ],
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html",
+      template: './src/index.html',
+      filename: './index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css",
-    }),
-    new LicenseFilePlugin({
-      outputFileName: "third-party-licenses.txt",
-      outputFolder: "./",
-      pathToPackageJson: "./package.json",
-      isDev: false,
-      lineEnding: undefined,
-      append: ["./licenses.txt"],
-      replace: {},
-      exclude: [],
+      filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
   ],
 };
