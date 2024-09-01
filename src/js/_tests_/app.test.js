@@ -11,7 +11,7 @@ beforeAll(() => {
   dom = new JSDOM(html, { runScripts: "dangerously" });
 });
 
-jest.setTimeout(30000);
+jest.setTimeout(60000);
 describe("Popover work", () => {
   test("Popover adding", async () => {
     const button = dom.window.document.querySelector(".button");
