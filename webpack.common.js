@@ -6,6 +6,9 @@ const { LicenseFilePlugin } = require("generate-license-file-webpack-plugin");
 module.exports = {
   devServer: {
     port: 9000,
+    contentBase: path.resolve(__dirname, "/dist"),
+    open: true,
+    compress: true,
   },
   target: "web",
   output: {
