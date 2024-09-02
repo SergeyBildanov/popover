@@ -17,17 +17,16 @@ describe("Popover work", () => {
         expect(popoverFactory._popovers.length).toBe(1);
     }, 1000);
   });
+  test("Popover removing", () => {
+    const button = document.querySelector(".button");
+    const popoverFactory = new Popover();
+    button.dispatchEvent(new window.Event("click"));
+    button.dispatchEvent(new window.Event("click"));
+    setTimeout(()=>{
+        expect(popoverFactory._popovers.length).toBe(0);
+    }, 2000);
+  });
 });
-/*describe("Popover work 1", () => {
-    test("Popover removing", () => {
-        const button = dom.window.document.querySelector(".button");
-        const popoverFactory = new Popover();
-        button.dispatchEvent(new dom.window.Event("click"));
-        button.dispatchEvent(new dom.window.Event("click"));
-        setTimeout(()=>{
-            expect(popoverFactory._popovers.length).toBe(0);
-        }, 2000);
-      });
-  });*/
+
 
 
