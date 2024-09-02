@@ -1,11 +1,5 @@
 import Popover from "../Popover";
-const fs = require("fs");
-const path = require("path");
-const html = fs.readFileSync(path.resolve("src/index.html"), "utf8");
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
 
-let dom;
 
 beforeAll(() => {
     document.body.innerHTML = `<div class="button">
